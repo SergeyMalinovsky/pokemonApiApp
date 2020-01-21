@@ -35,9 +35,9 @@ export function getPokemonsData(state = initialState.list, action) {
 export function getPokemonData(state = initialState.item, action) {
     switch(action.type) {
         case GET_POKEMON_SUCCESS:
-            return { status: GET_POKEMONS_SUCCESS, data: action.payload };
+            return { status: GET_POKEMON_SUCCESS, data: action.payload };
         case GET_POKEMON_FAILED:
-            return { status: GET_POKEMONS_FAILED, message: action.payload };
+            return { status: GET_POKEMON_FAILED, message: action.payload };
         default:
             return state;
     }

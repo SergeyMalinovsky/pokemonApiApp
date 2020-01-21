@@ -22,9 +22,21 @@ function* fetchPokemons(action) {
         const response = yield call(getPokemons, action.payload);
         const data = yield response.json();
 
-        yield put(API.getPokemonsSuccess(data));
+        const pokemons = yield data.results.map(item => {
+            return getPokemon(item.name)
+                .then(resp => resp.json()
+                    .then(data => mapPokemonData(data)))
+        });
+
+
+        const pokemonsPayload = yield Promise.all(pokemons)
+            .then(result => {
+                return result
+            });
+
+        yield put(API.getPokemonsSuccess(pokemonsPayload));
     }
-    catch(error) {
+    catch (error) {
         console.error(error);
     }
 }
