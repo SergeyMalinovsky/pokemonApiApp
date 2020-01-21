@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Router, Route } from 'react-router-dom';
+import { createBrowserHistory} from 'history';
+
 import './App.css';
+import List from './components/List';
+import Header from './components/Header';
+
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleWare from 'redux-saga';
+
+import baseReducer from './redux/reducers';
+
+const store = createStore(
+  baseReducer,
+  composeWithDevTools(
+    applyMiddleware(createSagaMiddleWare())
+  )
+);
+
+const history = createBrowserHistory();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="App">
+        <Router history={history}>
+          <Header />
+          <Route exact path='/' component={List}/>
+        </Router>
+      </div>
+    </Provider>
   );
 }
 
