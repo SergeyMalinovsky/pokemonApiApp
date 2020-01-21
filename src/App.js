@@ -12,15 +12,19 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleWare from 'redux-saga';
 
 import baseReducer from './redux/reducers';
+import rootSaga from './redux/sagas';
 
+const sagaMiddleware = createSagaMiddleWare();
 const store = createStore(
   baseReducer,
   composeWithDevTools(
-    applyMiddleware(createSagaMiddleWare())
+    applyMiddleware(sagaMiddleware)
   )
 );
 
 const history = createBrowserHistory();
+
+sagaMiddleware.run(rootSaga);
 
 function App() {
   return (

@@ -4,6 +4,7 @@ import styles from './Card.module.css';
 
 const Card = (props) => {
     const {id, name, imageUrl, abilities, base_experience} = props.card;
+
     return (
         <div className={styles.main}>
             <div className={styles.wrapper}>
