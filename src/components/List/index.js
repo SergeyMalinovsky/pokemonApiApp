@@ -13,7 +13,7 @@ import { connect } from 'react-redux';
 class List extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(API.getPokemonsRequest(10));
+        this.props.dispatch(API.getPokemonsRequest(this.props.currentPage, this.props.countPerPage));
     }
     
     renderContent = () => {
@@ -41,9 +41,13 @@ class List extends React.Component {
 const mapStateToProps = ({getPokemonsData: {
     status,
     data,
+    currentPage,
+    countPerPage
 }}) => ({
     loadStatus: status,
-    data
+    data,
+    currentPage,
+    countPerPage
 })
 
 export default connect(mapStateToProps)(List);

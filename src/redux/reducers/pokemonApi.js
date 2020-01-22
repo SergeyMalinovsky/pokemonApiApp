@@ -5,28 +5,51 @@ import {
     GET_POKEMON_SUCCESS, 
     GET_POKEMON_FAILED,
 
-    UNDEFINED
+    UNDEFINED,
+    GET_POKEMONS_REQUEST
     } from '../types';
 
 const initialState = {
     list: {
         status: UNDEFINED,
         data: [],
-        message: ''
+        message: '',
+        currentPage: 1,
+        countPerPage: 100
     },
     item: {
         status: UNDEFINED,
         data: {},
         message: ''
-    }
+    },
+    
 }
 
 export function getPokemonsData(state = initialState.list, action) {
     switch(action.type) {
         case GET_POKEMONS_SUCCESS:
-            return { status: GET_POKEMONS_SUCCESS, data: action.payload };
+            return  { 
+                        status: GET_POKEMONS_SUCCESS, 
+                        data: action.payload, 
+                        currentPage: state.currentPage,
+                        countPerPage: state.countPerPage
+                    };
+
         case GET_POKEMONS_FAILED:
-            return { status: GET_POKEMONS_FAILED, message: action.payload };
+            return  { 
+                        status: GET_POKEMONS_FAILED, 
+                        message: action.payload, 
+                        currentPage: state.currentPage, 
+                        countPerPage: state.countPerPage  
+                    };
+
+        case GET_POKEMONS_REQUEST:
+            return  {   
+                        status: GET_POKEMONS_REQUEST, 
+                        currentPage: action.payload.page, 
+                        countPerPage: state.countPerPage  
+                    };
+
         default:
             return state;
     }

@@ -6,9 +6,9 @@ import {
     } from '../types';
 
 export const API = {
-    getPokemonSuccess:  (payload) =>    ({ type: GET_POKEMON_SUCCESS,  payload: payload }),
-    getPokemonRequest:  (params) =>     ({ type: GET_POKEMON_REQUEST,  payload: params }),
+    getPokemonSuccess:  (payload) =>        ({ type: GET_POKEMON_SUCCESS,  payload: payload }),
+    getPokemonRequest:  (params) =>         ({ type: GET_POKEMON_REQUEST,  payload: params }),
 
-    getPokemonsSuccess: (payload) =>    ({ type: GET_POKEMONS_SUCCESS, payload: payload }),
-    getPokemonsRequest: (params) =>     ({ type: GET_POKEMONS_REQUEST, payload: params })
+    getPokemonsSuccess: (payload) =>        ({ type: GET_POKEMONS_SUCCESS, payload: payload }),
+    getPokemonsRequest: (page, count) =>    ({ type: GET_POKEMONS_REQUEST, payload: {page, count} })
 }
