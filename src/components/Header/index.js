@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './Header.module.css';
+import logoImage from '../../resources/pokemon-logo.png';
 
 
 class Header extends React.Component {
@@ -10,9 +11,12 @@ class Header extends React.Component {
             <div className={styles.main}>
                 <div className={styles.leftSide}>
                     <div className={styles.logo}>
+                        <Link to='/' >
+                            <img src={logoImage} alt='App-logo'/>
+                        </Link>
                     </div>
                     <div className={styles.title}>
-                        <p>App Title</p>
+                        <p></p>
                     </div>
                 </div>
                 <div className={styles.center}>

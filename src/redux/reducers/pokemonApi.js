@@ -15,7 +15,7 @@ const initialState = {
         data: [],
         message: '',
         currentPage: 1,
-        countPerPage: 100
+        countPerPage: 9
     },
     item: {
         status: UNDEFINED,
