@@ -32,7 +32,7 @@ export function getPokemonsData(state = initialState.list, action) {
                         status: GET_POKEMONS_SUCCESS, 
                         data: action.payload, 
                         currentPage: state.currentPage,
-                        countPerPage: state.countPerPage
+                        countPerPage: state.countPerPage,
                     };
 
         case GET_POKEMONS_FAILED:
@@ -40,14 +40,14 @@ export function getPokemonsData(state = initialState.list, action) {
                         status: GET_POKEMONS_FAILED, 
                         message: action.payload, 
                         currentPage: state.currentPage, 
-                        countPerPage: state.countPerPage  
+                        countPerPage: state.countPerPage,
                     };
 
         case GET_POKEMONS_REQUEST:
             return  {   
                         status: GET_POKEMONS_REQUEST, 
                         currentPage: action.payload.page, 
-                        countPerPage: state.countPerPage  
+                        countPerPage: state.countPerPage,
                     };
 
         default:

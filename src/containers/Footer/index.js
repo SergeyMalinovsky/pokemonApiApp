@@ -4,42 +4,38 @@ import { connect } from 'react-redux';
 import styles from './footer.module.css';
 import { API } from '../../redux/actions';
 
-class Footer extends React.Component {
-
-    nextPage = () => {
-        this.props.dispatch(
+const Footer = ({ currentPage, countPerPage, dispatch }) => {
+    const nextPage = () => {
+        dispatch(
             API.getPokemonsRequest(
-                this.props.currentPage + 1,
-                this.props.countPerPage
+                currentPage + 1,
+                countPerPage
             )
         )
     };
 
-    prevPage = () => {
-        if(this.props.currentPage > 1) {
-            this.props.dispatch(
+    const prevPage = () => {
+        if(currentPage > 1) {
+            dispatch(
                 API.getPokemonsRequest(
-                    this.props.currentPage - 1,
-                    this.props.countPerPage
+                    currentPage - 1,
+                    countPerPage
                 )
             )
         }
     }
 
-    render() {
-        return (
-            <div className={styles.main}>
-                {this.props.children}
-                <div className={styles.leftSide}></div>
-                <div className={styles.center}>
-                    <button onClick={() => this.prevPage()}>Back</button>
-                    <p>{this.props.currentPage}</p>
-                    <button onClick={() => this.nextPage()}>Next</button>
-                </div>
-                <div className={styles.rightSide}></div>
+    return (
+        <div className={styles.main}>
+            <div className={styles.leftSide}></div>
+            <div className={styles.center}>
+                <button onClick={() => prevPage()}>Back</button>
+                <p>{currentPage}</p>
+                <button onClick={() => nextPage()}>Next</button>
             </div>
-        );
-    }
+            <div className={styles.rightSide}></div>
+        </div>
+    );
 }
 
 const mapStateToProps = ({
