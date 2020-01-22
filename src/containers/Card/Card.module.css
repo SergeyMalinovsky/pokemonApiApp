@@ -24,6 +24,7 @@
     flex: 1;
     display: flex;
     flex-direction: row;
+    align-items: center;
 }
 
 .avatar {
@@ -38,13 +39,50 @@
     width: 100%;
 }
 
-.name {
+.description {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px;
+    margin-left: 10%;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 32px;  
+}
+
+.description table {
+    font-size: 16px;
+    line-height: 18px;
+    width: 80%;
+}
+
+.description table p {
+    color: #545454;
+    text-align: right;
+}
+
+.favoriteImage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.favoriteImage img {
+    height: 24px;
+}
+
+.favoriteImage img:hover {
+    cursor: pointer;
 }
 
 .center {
     flex: 1;
 }
 
-.bottom {
-}
+

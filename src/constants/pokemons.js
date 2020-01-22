@@ -5,5 +5,5 @@ export const Pokemon = {
     abilities:      'abilities',
     weight:         'weight',
     height:         'height',
-    urlImage:       'sprites'
+    imageUrl:       'sprites'
 }
