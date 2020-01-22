@@ -1,10 +1,12 @@
 import React from 'react';
 
 import styles from './List.module.css';
-import Card from '../../containers/Card';
 
-import {  GET_POKEMONS_SUCCESS } from '../../redux/types'
-import { API } from '../../redux/actions'
+import Card from '../../containers/Card';
+import Loader from '../../containers/loader-element'
+
+import {  GET_POKEMONS_SUCCESS } from '../../redux/types';
+import { API } from '../../redux/actions';
 
 import { connect } from 'react-redux';
 
@@ -21,7 +23,7 @@ class List extends React.Component {
             case GET_POKEMONS_SUCCESS:
                 return data.map((item, index) => <Card key={index} pokemon={item}/>);
             default:
-                return (<p>-></p>);
+                return (<Loader />);
         }
     }
 
