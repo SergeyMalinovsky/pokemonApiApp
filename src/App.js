@@ -5,6 +5,7 @@ import { createBrowserHistory} from 'history';
 import './App.css';
 import List from './components/List';
 import Header from './components/Header';
+import Footer from './containers/Footer';
 
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
@@ -33,6 +34,7 @@ function App() {
         <Router history={history}>
           <Header />
           <Route exact path='/' component={List}/>
+          <Footer />
         </Router>
       </div>
     </Provider>
