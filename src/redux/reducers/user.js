@@ -2,6 +2,8 @@ import {
     USER_ADDS_TO_FAVORITES_REQUEST,
     USER_ADDS_TO_FAVORITES_SUCCESS,
     USER_ADDS_TO_FAVORITES_FAILED,
+
+    USER_LOGOUT,
 } from '../types/userActions';
 
 import {
@@ -55,6 +57,9 @@ export function userStateReducer(state = initialState.userState, action) {
                 password: payload.password,
                 status: state.status,
             };
+
+        case USER_LOGOUT:
+            return initialState.userState;
 
         default:
             return state;

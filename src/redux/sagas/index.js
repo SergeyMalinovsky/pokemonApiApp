@@ -51,7 +51,7 @@ function* userAthorization(action) {
         const response = yield call(getUser, { login, password });
         const userData = yield response.json();
 
-        if (userData[0].login === login.toLowerCase()) {
+        if (userData[0].login !== login.toLowerCase()) {
             throw USER_AUTHORIZATION_FAILED;
         }
 
