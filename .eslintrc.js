@@ -30,6 +30,7 @@ module.exports = {
         'function-paren-newline': 'off', 
         'no-plusplus': 'off',
         'space-before-function-paren': 0,
+        'object-curly-spacing': ["error", "always"],
 
         'max-len': ['error', 100, 2, { ignoreUrls: true, }],
         'no-console': 'error',
@@ -38,7 +39,7 @@ module.exports = {
         'no-param-reassign': 'off', 
         "radix": "off", 
 
-        "indent": [2, 2, {"SwitchCase": 1}],
+        "indent": [2, 4, {"SwitchCase": 1}],
 
         'react/require-default-props': 'off',
         'react/forbid-prop-types': 'off',
