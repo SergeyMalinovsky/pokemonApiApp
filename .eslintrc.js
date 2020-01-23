@@ -10,7 +10,6 @@ module.exports = {
         'import',
         'jsx-a11y',
         'react',
-        'prettier',
     ],
     parser: 'babel-eslint',
     parserOptions: {
@@ -29,8 +28,12 @@ module.exports = {
         'arrow-body-style': 'off', 
         'function-paren-newline': 'off', 
         'no-plusplus': 'off',
+        'no-trailing-spaces': ["error", { "ignoreComments": true, "skipBlankLines": true }],
         'space-before-function-paren': 0,
         'object-curly-spacing': ["error", "always"],
+        'no-multi-spaces': 0,
+        'object-shorthand': 0,
+        
 
         'max-len': ['error', 100, 2, { ignoreUrls: true, }],
         'no-console': 'error',
@@ -40,6 +43,7 @@ module.exports = {
         "radix": "off", 
 
         "indent": [2, 4, {"SwitchCase": 1}],
+        "eol-last": ["error", "always"],
 
         'react/require-default-props': 'off',
         'react/forbid-prop-types': 'off',
@@ -60,6 +64,5 @@ module.exports = {
         }],
         'jsx-quotes': ["error", "prefer-single"],
 
-        'prettier/prettier': ['error'],
     },
 };
