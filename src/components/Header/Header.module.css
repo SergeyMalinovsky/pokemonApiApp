@@ -19,6 +19,10 @@
     align-items: center;
 }
 
+.title {
+    text-align: center;
+}
+
 .center {
     margin-left: 5px;
     margin-right: 5px;
@@ -31,4 +35,7 @@
 
 .rightSide {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
