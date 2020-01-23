@@ -5,6 +5,9 @@ import {
 
     USER_STATUS_AUTHORIZATED,
     USER_STATUS_NON_AUTHORIZATED,
+
+    USER_ADDS_TO_FAVORITES,
+    USER_DELETES_FROM_FAVORITES,
 } from '../types';
 
 
@@ -20,27 +23,28 @@ const initialState = {
     userData: {
         favorites: [],
         messages: [],
+        
     },
 };
 
 export function userStateReducer(state = initialState.userState, action) {
-    const { login, password, name, message } = action.payload;
+    const payload = action.payload;
 
     switch (action.type) {
         case USER_AUTHORIZATION_SUCCESS:
             return {
                 isUserLogged: true,
-                name: name,
-                login: login,
+                name: payload.name,
+                login: payload.login,
                 status: USER_STATUS_AUTHORIZATED,
             };
 
         case USER_AUTHORIZATION_FAILED:
             return {
                 isUserLogged: false,
-                login: login,
-                password: password,
-                authErrorMessage: message,
+                login: payload.login,
+                password: payload.password,
+                authErrorMessage: payload.message,
                 status: USER_STATUS_NON_AUTHORIZATED,
             };
 
@@ -55,9 +59,11 @@ export function userStateReducer(state = initialState.userState, action) {
     }
 }
 
-export function userDataReducer(state = initialState.UserData, action) {
+export function userDataReducer(state = initialState.userData, action) {
     switch (action.type) {
-        case 1:
+        case USER_ADDS_TO_FAVORITES:
+            return state;
+        case USER_DELETES_FROM_FAVORITES:
             return state;
         default:
             return state;
