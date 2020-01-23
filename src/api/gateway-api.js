@@ -1,6 +1,8 @@
 const POKEAPI_URI =     'https://pokeapi.co/api';
 const POKEAPI_VERSION = '/v2';
 
+const USER_API = 'http://localhost:3001';
+
 export function getPokemons(params) {
     const { page, count } = params;
 
@@ -24,3 +26,11 @@ export function getPokemon(nameOrId) {
 }
 
 function getCountOfAllPokemons(){ return fetch(`${POKEAPI_URI}${POKEAPI_VERSION}/pokemon/`)};
+
+export function getUser(credenitials) {
+    const { login, password } = credenitials;
+
+    return fetch(
+        `${USER_API}/User`,
+    ).catch(err => { throw err; });
+}

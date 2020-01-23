@@ -1,7 +1,6 @@
 import { Pokemon } from "../constants/pokemons";
 
-export const mapPokemonData = (payload) => {
-    console.log(payload);
+export const mapPokemonData = payload => {
     const values = Object.values(Pokemon);
     const keys = Object.keys(Pokemon);
 
