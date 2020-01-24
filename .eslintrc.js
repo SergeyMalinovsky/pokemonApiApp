@@ -33,6 +33,7 @@ module.exports = {
         'object-curly-spacing': ["error", "always"],
         'no-multi-spaces': 0,
         'object-shorthand': 0,
+        'comma-dangle': 0,
         
 
         'max-len': ['error', 100, 2, { ignoreUrls: true, }],
